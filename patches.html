@@ -1,0 +1,689 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link href="data:text/css;charset=utf-8,%0Ahtml%20%7B%0Afont%2Dsize%3A%20100%25%3B%0Aoverflow%2Dy%3A%20scroll%3B%0A%2Dwebkit%2Dtext%2Dsize%2Dadjust%3A%20100%25%3B%0A%2Dms%2Dtext%2Dsize%2Dadjust%3A%20100%25%3B%0A%7D%0Abody%20%7B%0Acolor%3A%20%23444%3B%0Afont%2Dfamily%3A%20Georgia%2C%20Palatino%2C%20%27Palatino%20Linotype%27%2C%20Times%2C%20%27Times%20New%20Roman%27%2C%20serif%3B%0Afont%2Dsize%3A%2012px%3B%0Aline%2Dheight%3A%201%2E7%3B%0Apadding%3A%201em%3B%0Amargin%3A%20auto%3B%0Amax%2Dwidth%3A%2085%25%3B%0Abackground%3A%20%23fefefe%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230645ad%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%230b0080%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%2306e%3B%0A%7D%0Aa%3Aactive%20%7B%0Acolor%3A%20%23faa700%3B%0A%7D%0Aa%3Afocus%20%7B%0Aoutline%3A%20thin%20dotted%3B%0A%7D%0A%2A%3A%3A%2Dmoz%2Dselection%20%7B%0Abackground%3A%20rgba%28255%2C%20255%2C%200%2C%200%2E3%29%3B%0Acolor%3A%20%23000%3B%0A%7D%0A%2A%3A%3Aselection%20%7B%0Abackground%3A%20rgba%28255%2C%20255%2C%200%2C%200%2E3%29%3B%0Acolor%3A%20%23000%3B%0A%7D%0Aa%3A%3A%2Dmoz%2Dselection%20%7B%0Abackground%3A%20rgba%28255%2C%20255%2C%200%2C%200%2E3%29%3B%0Acolor%3A%20%230645ad%3B%0A%7D%0Aa%3A%3Aselection%20%7B%0Abackground%3A%20rgba%28255%2C%20255%2C%200%2C%200%2E3%29%3B%0Acolor%3A%20%230645ad%3B%0A%7D%0Ap%20%7B%0Amargin%3A%201em%200%3B%0A%7D%0Aimg%20%7B%0Amax%2Dwidth%3A%20100%25%3B%0A%7D%0Ah1%2C%20h2%2C%20h3%2C%20h4%2C%20h5%2C%20h6%20%7B%0Acolor%3A%20%23111%3B%0Aline%2Dheight%3A%20125%25%3B%0Amargin%2Dtop%3A%201em%3B%0Afont%2Dweight%3A%20normal%3B%0A%7D%0Ah4%2C%20h5%2C%20h6%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Ah1%20%7B%0Afont%2Dsize%3A%202%2E5em%3B%0A%7D%0Ah2%20%7B%0Afont%2Dsize%3A%202em%3B%0A%7D%0Ah3%20%7B%0Afont%2Dsize%3A%201%2E5em%3B%0A%7D%0Ah4%20%7B%0Afont%2Dsize%3A%201%2E2em%3B%0A%7D%0Ah5%20%7B%0Afont%2Dsize%3A%201em%3B%0A%7D%0Ah6%20%7B%0Afont%2Dsize%3A%200%2E9em%3B%0A%7D%0Ablockquote%20%7B%0Acolor%3A%20%23666666%3B%0Amargin%3A%200%3B%0Apadding%2Dleft%3A%203em%3B%0Aborder%2Dleft%3A%200%2E5em%20%23EEE%20solid%3B%0A%7D%0Ahr%20%7B%0Adisplay%3A%20block%3B%0Aheight%3A%202px%3B%0Aborder%3A%200%3B%0Aborder%2Dtop%3A%201px%20solid%20%23aaa%3B%0Aborder%2Dbottom%3A%201px%20solid%20%23eee%3B%0Amargin%3A%201em%200%3B%0Apadding%3A%200%3B%0A%7D%0Apre%2C%20code%2C%20kbd%2C%20samp%20%7B%0Acolor%3A%20%23000%3B%0Afont%2Dfamily%3A%20monospace%2C%20monospace%3B%0A%5Ffont%2Dfamily%3A%20%27courier%20new%27%2C%20monospace%3B%0Afont%2Dsize%3A%200%2E98em%3B%0A%7D%0Apre%20%7B%0Awhite%2Dspace%3A%20pre%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%0Aword%2Dwrap%3A%20break%2Dword%3B%0A%7D%0Ab%2C%20strong%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Adfn%20%7B%0Afont%2Dstyle%3A%20italic%3B%0A%7D%0Ains%20%7B%0Abackground%3A%20%23ff9%3B%0Acolor%3A%20%23000%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Amark%20%7B%0Abackground%3A%20%23ff0%3B%0Acolor%3A%20%23000%3B%0Afont%2Dstyle%3A%20italic%3B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Asub%2C%20sup%20%7B%0Afont%2Dsize%3A%2075%25%3B%0Aline%2Dheight%3A%200%3B%0Aposition%3A%20relative%3B%0Avertical%2Dalign%3A%20baseline%3B%0A%7D%0Asup%20%7B%0Atop%3A%20%2D0%2E5em%3B%0A%7D%0Asub%20%7B%0Abottom%3A%20%2D0%2E25em%3B%0A%7D%0Aul%2C%20ol%20%7B%0Amargin%3A%201em%200%3B%0Apadding%3A%200%200%200%202em%3B%0A%7D%0Ali%20p%3Alast%2Dchild%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Aul%20ul%2C%20ol%20ol%20%7B%0Amargin%3A%20%2E3em%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dbottom%3A%201em%3B%0A%7D%0Adt%20%7B%0Afont%2Dweight%3A%20bold%3B%0Amargin%2Dbottom%3A%20%2E8em%3B%0A%7D%0Add%20%7B%0Amargin%3A%200%200%20%2E8em%202em%3B%0A%7D%0Add%3Alast%2Dchild%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Aimg%20%7B%0Aborder%3A%200%3B%0A%2Dms%2Dinterpolation%2Dmode%3A%20bicubic%3B%0Avertical%2Dalign%3A%20middle%3B%0A%7D%0Afigure%20%7B%0Adisplay%3A%20block%3B%0Atext%2Dalign%3A%20center%3B%0Amargin%3A%201em%200%3B%0A%7D%0Afigure%20img%20%7B%0Aborder%3A%20none%3B%0Amargin%3A%200%20auto%3B%0A%7D%0Afigcaption%20%7B%0Afont%2Dsize%3A%200%2E8em%3B%0Afont%2Dstyle%3A%20italic%3B%0Amargin%3A%200%200%20%2E8em%3B%0A%7D%0Atable%20%7B%0Amargin%2Dbottom%3A%202em%3B%0Aborder%2Dbottom%3A%201px%20solid%20%23ddd%3B%0Aborder%2Dright%3A%201px%20solid%20%23ddd%3B%0Aborder%2Dspacing%3A%200%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Apadding%3A%20%2E2em%201em%3B%0Abackground%2Dcolor%3A%20%23eee%3B%0Aborder%2Dtop%3A%201px%20solid%20%23ddd%3B%0Aborder%2Dleft%3A%201px%20solid%20%23ddd%3B%0A%7D%0Atable%20td%20%7B%0Apadding%3A%20%2E2em%201em%3B%0Aborder%2Dtop%3A%201px%20solid%20%23ddd%3B%0Aborder%2Dleft%3A%201px%20solid%20%23ddd%3B%0Avertical%2Dalign%3A%20top%3B%0A%7D%0A%2Eauthor%20%7B%0Afont%2Dsize%3A%201%2E2em%3B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%40media%20only%20screen%20and%20%28min%2Dwidth%3A%20480px%29%20%7B%0Abody%20%7B%0Afont%2Dsize%3A%2012px%3B%0A%7D%0A%7D%0A%40media%20only%20screen%20and%20%28min%2Dwidth%3A%20768px%29%20%7B%0Abody%20%7B%0Afont%2Dsize%3A%2014px%3B%0A%7D%0A%7D%0A%40media%20print%20%7B%0A%2A%20%7B%0Abackground%3A%20transparent%20%21important%3B%0Acolor%3A%20black%20%21important%3B%0Afilter%3A%20none%20%21important%3B%0A%2Dms%2Dfilter%3A%20none%20%21important%3B%0A%7D%0Abody%20%7B%0Afont%2Dsize%3A%2012pt%3B%0Amax%2Dwidth%3A%20100%25%3B%0A%7D%0Aa%2C%20a%3Avisited%20%7B%0Atext%2Ddecoration%3A%20underline%3B%0A%7D%0Ahr%20%7B%0Aheight%3A%201px%3B%0Aborder%3A%200%3B%0Aborder%2Dbottom%3A%201px%20solid%20black%3B%0A%7D%0Aa%5Bhref%5D%3Aafter%20%7B%0Acontent%3A%20%22%20%28%22%20attr%28href%29%20%22%29%22%3B%0A%7D%0Aabbr%5Btitle%5D%3Aafter%20%7B%0Acontent%3A%20%22%20%28%22%20attr%28title%29%20%22%29%22%3B%0A%7D%0A%2Eir%20a%3Aafter%2C%20a%5Bhref%5E%3D%22javascript%3A%22%5D%3Aafter%2C%20a%5Bhref%5E%3D%22%23%22%5D%3Aafter%20%7B%0Acontent%3A%20%22%22%3B%0A%7D%0Apre%2C%20blockquote%20%7B%0Aborder%3A%201px%20solid%20%23999%3B%0Apadding%2Dright%3A%201em%3B%0Apage%2Dbreak%2Dinside%3A%20avoid%3B%0A%7D%0Atr%2C%20img%20%7B%0Apage%2Dbreak%2Dinside%3A%20avoid%3B%0A%7D%0Aimg%20%7B%0Amax%2Dwidth%3A%20100%25%20%21important%3B%0A%7D%0A%40page%20%3Aleft%20%7B%0Amargin%3A%2015mm%2020mm%2015mm%2010mm%3B%0A%7D%0A%40page%20%3Aright%20%7B%0Amargin%3A%2015mm%2010mm%2015mm%2020mm%3B%0A%7D%0Ap%2C%20h2%2C%20h3%20%7B%0Aorphans%3A%203%3B%0Awidows%3A%203%3B%0A%7D%0Ah2%2C%20h3%20%7B%0Apage%2Dbreak%2Dafter%3A%20avoid%3B%0A%7D%0A%7D%0A" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h3 id="perf">perf</h3>
+<table>
+<colgroup>
+<col width="11%"></col>
+<col width="13%"></col>
+<col width="13%"></col>
+<col width="62%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Release</th>
+<th>Upstream</th>
+<th>Backport</th>
+<th>Subject</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>v4.19-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b9b77222d4ff">b9b77222d4ff</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/d65d6855d968">d65d6855d968</a></td>
+<td>perf vendor events arm64: Update ThunderX2 implementation defined pmu core events</td>
+</tr>
+<tr class="even">
+<td>v4.17-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a8685f088819">a8685f088819</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/009ea3d7413d">009ea3d7413d</a></td>
+<td>perf vendor events arm64: Enable JSON events for ThunderX2 B0</td>
+</tr>
+<tr class="odd">
+<td>v4.17-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ae43053bd259">ae43053bd259</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/7bb6b41207d2">7bb6b41207d2</a></td>
+<td>perf vendor events arm64: Fixup ThunderX2 to use recommended events</td>
+</tr>
+<tr class="even">
+<td>v4.17-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=360b7b03afee">360b7b03afee</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/feac00637c28">feac00637c28</a></td>
+<td>perf vendor events arm64: Add armv8-recommended.json</td>
+</tr>
+<tr class="odd">
+<td>v4.17-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e9d32c1bf0cd">e9d32c1bf0cd</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/c30afaf2b7e9">c30afaf2b7e9</a></td>
+<td>perf vendor events: Add support for arch standard events</td>
+</tr>
+<tr class="even">
+<td>v4.17-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e3b9f1e81de2">e3b9f1e81de2</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/2fc133bae258">2fc133bae258</a></td>
+<td>perf vendor events arm64: Relocate ThunderX2 JSON to cavium subdirectory</td>
+</tr>
+<tr class="odd">
+<td>v4.17-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=51ce1dcc5d0d">51ce1dcc5d0d</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/e654b9575ff1">e654b9575ff1</a></td>
+<td>perf vendor events: Add support for pmu events vendor subdirectory</td>
+</tr>
+<tr class="even">
+<td>v4.17-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6f2f2ca3454e">6f2f2ca3454e</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/35dfb3617ee2">35dfb3617ee2</a></td>
+<td>perf vendor events: Drop support for unused topic directories</td>
+</tr>
+<tr class="odd">
+<td>v4.17-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=931ef5dc5c18">931ef5dc5c18</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/0a4b2635e89a">0a4b2635e89a</a></td>
+<td>perf vendor events: Fix error code in json_events()</td>
+</tr>
+<tr class="even">
+<td>v4.17-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4c0ab1605205">4c0ab1605205</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/11796c4117ef">11796c4117ef</a></td>
+<td>perf vendor events: Drop incomplete multiple mapfile support</td>
+</tr>
+</tbody>
+</table>
+<h3 id="thunderx2-i2c">ThunderX2 I2C</h3>
+<table>
+<colgroup>
+<col width="11%"></col>
+<col width="13%"></col>
+<col width="13%"></col>
+<col width="62%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Release</th>
+<th>Upstream</th>
+<th>Backport</th>
+<th>Subject</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>v4.18</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5eb173f5c8f3">5eb173f5c8f3</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/c5bc4177f7f7">c5bc4177f7f7</a></td>
+<td>i2c: xlp9xx: Fix case where SSIF read transaction completes early</td>
+</tr>
+<tr class="even">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=88b4116e7e98">88b4116e7e98</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/e244e8c80e92">e244e8c80e92</a></td>
+<td>i2c: xlp9xx: Make sure the transfer size is not more than I2C_SMBUS_BLOCK_SIZE</td>
+</tr>
+<tr class="odd">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8d504d804ab6">8d504d804ab6</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/514e9cba2f9b">514e9cba2f9b</a></td>
+<td>i2c: xlp9xx: Fix issue seen when updating receive length</td>
+</tr>
+<tr class="even">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=40f4e372cba8">40f4e372cba8</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/1a4a455fb12e">1a4a455fb12e</a></td>
+<td>i2c: xlp9xx: Add support for SMBAlert</td>
+</tr>
+<tr class="odd">
+<td>v4.17-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e349d7d08e70">e349d7d08e70</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/87795e623196">87795e623196</a></td>
+<td>i2c: xlp9xx: Handle NACK on DATA properly</td>
+</tr>
+<tr class="even">
+<td>v4.17-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d3898a78521c">d3898a78521c</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/ab536da560b3">ab536da560b3</a></td>
+<td>i2c: xlp9xx: Check for Bus state before every transfer</td>
+</tr>
+<tr class="odd">
+<td>v4.17-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=41b1d4de9632">41b1d4de9632</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/a317b2e3c0d4">a317b2e3c0d4</a></td>
+<td>i2c: xlp9xx: Handle transactions with I2C_M_RECV_LEN properly</td>
+</tr>
+<tr class="even">
+<td>v4.17-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c2a3b3cce8df">c2a3b3cce8df</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/152e63cd21a2">152e63cd21a2</a></td>
+<td>i2c: xlp9xx: return ENXIO on slave address NACK</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cppc">CPPC</h3>
+<table>
+<colgroup>
+<col width="11%"></col>
+<col width="13%"></col>
+<col width="13%"></col>
+<col width="62%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Release</th>
+<th>Upstream</th>
+<th>Backport</th>
+<th>Subject</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>v4.19-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=33477d84c26b">33477d84c26b</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/1b82d469ba57">1b82d469ba57</a></td>
+<td>cpufreq / CPPC: Add cpuinfo_cur_freq support for CPPC</td>
+</tr>
+<tr class="even">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8f8027c5f935">8f8027c5f935</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/2449ffc56308">2449ffc56308</a></td>
+<td>mailbox: PCC: erroneous error message when parsing ACPI PCCT</td>
+</tr>
+<tr class="odd">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=58e1c03536c9">58e1c03536c9</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/9061e1a7ba86">9061e1a7ba86</a></td>
+<td>ACPI / CPPC: Fix invalid PCC channel status errors</td>
+</tr>
+<tr class="even">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b382bf885269">b382bf885269</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/b4a68cc9f7b6">b4a68cc9f7b6</a></td>
+<td>ACPI / CPPC: Document CPPC sysfs interface</td>
+</tr>
+<tr class="odd">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=256f19d212f2">256f19d212f2</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/73211f996a08">73211f996a08</a></td>
+<td>cpufreq / CPPC: Support for CPPC v3</td>
+</tr>
+<tr class="even">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6fa12d584dcb">6fa12d584dcb</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/79a4b49a8886">79a4b49a8886</a></td>
+<td>ACPI / CPPC: Check for valid PCC subspace only if PCC is used</td>
+</tr>
+<tr class="odd">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4773e77cdc9b">4773e77cdc9b</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/8879dc652d89">8879dc652d89</a></td>
+<td>ACPI / CPPC: Add support for CPPC v3</td>
+</tr>
+<tr class="even">
+<td>v4.17-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8b10bc2015c">b8b10bc2015c</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/a8c14eb7a50d">a8c14eb7a50d</a></td>
+<td>cpufreq: CPPC: Don't set transition_latency</td>
+</tr>
+<tr class="odd">
+<td>v4.17-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3d41386d556d">3d41386d556d</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/cd85a5df8582">cd85a5df8582</a></td>
+<td>cpufreq: CPPC: Use transition_delay_us depending transition_latency</td>
+</tr>
+<tr class="even">
+<td>v4.17-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d29abc836843">d29abc836843</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/b679256bc6c1">b679256bc6c1</a></td>
+<td>ACPI / CPPC: Update all pr_(debug/err) messages to log the susbspace id</td>
+</tr>
+</tbody>
+</table>
+<h3 id="kvmother">KVM/Other</h3>
+<table>
+<colgroup>
+<col width="11%"></col>
+<col width="13%"></col>
+<col width="13%"></col>
+<col width="62%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Release</th>
+<th>Upstream</th>
+<th>Backport</th>
+<th>Subject</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>v4.17-rc6</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=711702b57cc3">711702b57cc3</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/6d625b313736">6d625b313736</a></td>
+<td>KVM: arm/arm64: VGIC/ITS save/restore: protect kvm_read_guest() calls</td>
+</tr>
+<tr class="even">
+<td>v4.17-rc6</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bf308242ab98">bf308242ab98</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/05702baac530">05702baac530</a></td>
+<td>KVM: arm/arm64: VGIC/ITS: protect kvm_read_guest() calls with SRCU lock</td>
+</tr>
+<tr class="odd">
+<td>v4.17-rc6</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9c4188762f7f">9c4188762f7f</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/34cd437892f7">34cd437892f7</a></td>
+<td>KVM: arm/arm64: VGIC/ITS: Promote irq_lock() in update_affinity</td>
+</tr>
+<tr class="even">
+<td>v4.17-rc6</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=388d4359680b">388d4359680b</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/970432c05b0c">970432c05b0c</a></td>
+<td>KVM: arm/arm64: Properly protect VGIC locks from IRQs</td>
+</tr>
+<tr class="odd">
+<td>v4.17-rc7</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=32c3fa7cdf0c">32c3fa7cdf0c</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/8a10d2f81f9d">8a10d2f81f9d</a></td>
+<td>arm64: lse: Add early clobbers to some input/output asm operands</td>
+</tr>
+<tr class="even">
+<td>v4.17-rc5</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ae646f0b9ca1">ae646f0b9ca1</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/cfb9d7325ea7">cfb9d7325ea7</a></td>
+<td>init: fix false positives in W+X checking</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pci">PCI</h3>
+<table>
+<colgroup>
+<col width="11%"></col>
+<col width="13%"></col>
+<col width="13%"></col>
+<col width="62%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Release</th>
+<th>Upstream</th>
+<th>Backport</th>
+<th>Subject</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>v4.17-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=204f4afa7ae5">204f4afa7ae5</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/ca9406b4bc1f">ca9406b4bc1f</a></td>
+<td>PCI: Remove redundant probes for device reset support</td>
+</tr>
+<tr class="even">
+<td>v4.17-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5b0764cac9f1">5b0764cac9f1</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/ecc427c8c1e4">ecc427c8c1e4</a></td>
+<td>PCI: Probe for device reset support during enumeration</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ipmi-backports">IPMI backports</h3>
+<table>
+<colgroup>
+<col width="11%"></col>
+<col width="13%"></col>
+<col width="13%"></col>
+<col width="62%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Release</th>
+<th>Upstream</th>
+<th>Backport</th>
+<th>Subject</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>v4.18-rc4</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2068db53b633">2068db53b633</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/edf7528320ce">edf7528320ce</a></td>
+<td>ipmi: Cleanup oops on initialization failure</td>
+</tr>
+<tr class="even">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1211229399b3">1211229399b3</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/a33bdb8b38c8">a33bdb8b38c8</a></td>
+<td>ipmi_ssif: Fix uninitialized variable issue</td>
+</tr>
+<tr class="odd">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=93c303d2045b">93c303d2045b</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/4cd1ad6be388">4cd1ad6be388</a></td>
+<td>ipmi_si: Clean up shutdown a bit</td>
+</tr>
+<tr class="even">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6a0d23ed338e">6a0d23ed338e</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/702985a40e68">702985a40e68</a></td>
+<td>ipmi: ipmi_unregister_smi() cannot fail, have it return void</td>
+</tr>
+<tr class="odd">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7960f18a5647">7960f18a5647</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/9908249568b0">9908249568b0</a></td>
+<td>ipmi_si: Convert over to a shutdown handler</td>
+</tr>
+<tr class="even">
+<td>v4.17-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=71404a2f75c1">71404a2f75c1</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/e6b426eab6f4">e6b426eab6f4</a></td>
+<td>ipmi: Consolidate cleanup code</td>
+</tr>
+<tr class="odd">
+<td>v4.17-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=cc095f0ac1f7">cc095f0ac1f7</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/c089191f2f0e">c089191f2f0e</a></td>
+<td>ipmi: Fix some error cleanup issues</td>
+</tr>
+<tr class="even">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f0258c95304e">f0258c95304e</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/5d733761ce32">5d733761ce32</a></td>
+<td>ipmi_ssif: Remove usecount handling</td>
+</tr>
+<tr class="odd">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a313dec6401f">a313dec6401f</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/332a926ee532">332a926ee532</a></td>
+<td>ipmi_ssif: Convert over to a shutdown handler</td>
+</tr>
+<tr class="even">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a567b6230066">a567b6230066</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/a549d292b669">a549d292b669</a></td>
+<td>ipmi: Change ipmi_smi_t to struct ipmi_smi *</td>
+</tr>
+<tr class="odd">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b7780dab90e8">b7780dab90e8</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/6e6fa8bb5910">6e6fa8bb5910</a></td>
+<td>ipmi: Add shutdown functions for users and interfaces</td>
+</tr>
+<tr class="even">
+<td>v4.17-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4866b1dce038">4866b1dce038</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/9f56ba73b2c1">9f56ba73b2c1</a></td>
+<td>ipmi: Remove ACPI SPMI probing from the SSIF (I2C) driver</td>
+</tr>
+<tr class="odd">
+<td>v4.17-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f002612b9d86">f002612b9d86</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/50fd8b4047cf">50fd8b4047cf</a></td>
+<td>ipmi_ssif: Fix kernel panic at msg_done_handler</td>
+</tr>
+</tbody>
+</table>
+<h3 id="kexeckdump-fixes">kexec/kdump fixes</h3>
+<table>
+<colgroup>
+<col width="11%"></col>
+<col width="13%"></col>
+<col width="13%"></col>
+<col width="62%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Release</th>
+<th>Upstream</th>
+<th>Backport</th>
+<th>Subject</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>v4.19-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2c870e61132c">2c870e61132c</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/8040fa9d9392">8040fa9d9392</a></td>
+<td>arm64: fix ACPI dependencies</td>
+</tr>
+<tr class="even">
+<td>v4.19-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=09ffcb0d718a">09ffcb0d718a</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/9f6f5aea4855">9f6f5aea4855</a></td>
+<td>arm64: acpi: fix alignment fault in accessing ACPI</td>
+</tr>
+<tr class="odd">
+<td>v4.19-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=20d12cf99061">20d12cf99061</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/a67ea1e13ac6">a67ea1e13ac6</a></td>
+<td>efi/arm: map UEFI memory map even w/o runtime services enabled</td>
+</tr>
+<tr class="even">
+<td>v4.19-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3ea86495aef2">3ea86495aef2</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/499cf7421f16">499cf7421f16</a></td>
+<td>efi/arm: preserve early mapping of UEFI memory map longer for BGRT</td>
+</tr>
+<tr class="odd">
+<td>v4.19-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5bcd44083a08">5bcd44083a08</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/d443daf87794">d443daf87794</a></td>
+<td>drivers: acpi: add dependency of EFI for arm64</td>
+</tr>
+<tr class="even">
+<td>v4.19-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=50d7ba36b916">50d7ba36b916</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/b6395e41f7e8">b6395e41f7e8</a></td>
+<td>arm64: export memblock_reserve()d regions via /proc/iomem</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pptt">PPTT</h3>
+<table>
+<colgroup>
+<col width="11%"></col>
+<col width="13%"></col>
+<col width="13%"></col>
+<col width="62%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Release</th>
+<th>Upstream</th>
+<th>Backport</th>
+<th>Subject</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>v4.18-rc4</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=30998033f62a">30998033f62a</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/9329a6d801eb">9329a6d801eb</a></td>
+<td>ACPI / PPTT: use ACPI ID whenever ACPI_PPTT_ACPI_PROCESSOR_ID_VALID is set</td>
+</tr>
+<tr class="even">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e156ab71a974">e156ab71a974</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/26c282ba766e">26c282ba766e</a></td>
+<td>arm64: topology: Avoid checking numa mask for scheduler MC selection</td>
+</tr>
+<tr class="odd">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=37c3ec2d810f">37c3ec2d810f</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/07c44a9f3d75">07c44a9f3d75</a></td>
+<td>arm64: topology: divorce MC scheduling domain from core_siblings</td>
+</tr>
+<tr class="even">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bce1a65172d1">bce1a65172d1</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/aba93b642614">aba93b642614</a></td>
+<td>ACPI: Add PPTT to injectable table list</td>
+</tr>
+<tr class="odd">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2f0a5d107e1f">2f0a5d107e1f</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/b26456f19aa8">b26456f19aa8</a></td>
+<td>arm64: topology: enable ACPI/PPTT based CPU topology</td>
+</tr>
+<tr class="even">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=868abc07680c">868abc07680c</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/dd984d47d4b1">dd984d47d4b1</a></td>
+<td>arm64: topology: rename cluster_id</td>
+</tr>
+<tr class="odd">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8571890e1513">8571890e1513</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/62b343f29c83">62b343f29c83</a></td>
+<td>arm64: Add support for ACPI based firmware tables</td>
+</tr>
+<tr class="even">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=582b468bdc6d">582b468bdc6d</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/a90f82ee0733">a90f82ee0733</a></td>
+<td>drivers: base cacheinfo: Add support for ACPI based firmware tables</td>
+</tr>
+<tr class="odd">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0ce82232232a">0ce82232232a</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/ecd7de3c4c74">ecd7de3c4c74</a></td>
+<td>ACPI: Enable PPTT support on ARM64</td>
+</tr>
+<tr class="even">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2bd00bcd73e5">2bd00bcd73e5</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/9f61167b03d6">9f61167b03d6</a></td>
+<td>ACPI/PPTT: Add Processor Properties Topology Table parsing</td>
+</tr>
+<tr class="odd">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=30d87bfacbee">30d87bfacbee</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/3a42b419b51e">3a42b419b51e</a></td>
+<td>arm64/acpi: Create arch specific cpu to acpi id helper</td>
+</tr>
+<tr class="even">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9b97387c5c42">9b97387c5c42</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/5e671d50fbb1">5e671d50fbb1</a></td>
+<td>cacheinfo: rename of_node to fw_token</td>
+</tr>
+<tr class="odd">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2ff075c7dfd4">2ff075c7dfd4</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/12197ae1f1aa">12197ae1f1aa</a></td>
+<td>drivers: base: cacheinfo: setup DT cache properties early</td>
+</tr>
+<tr class="even">
+<td>v4.18-rc1</td>
+<td><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d529a18a61f3">d529a18a61f3</a></td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/64cd1b06c8c3">64cd1b06c8c3</a></td>
+<td>drivers: base: cacheinfo: move cache_setup_of_node()</td>
+</tr>
+</tbody>
+</table>
+<h3 id="maintainer-tree">Maintainer tree</h3>
+<table>
+<colgroup>
+<col width="11%"></col>
+<col width="13%"></col>
+<col width="13%"></col>
+<col width="62%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Release</th>
+<th>Upstream</th>
+<th>Backport</th>
+<th>Subject</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ipmi</td>
+<td>0745dde62835</td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/ddd6b87bd054">ddd6b87bd054</a></td>
+<td>ipmi: Fix I2C client removal in the SSIF driver</td>
+</tr>
+<tr class="even">
+<td>ipmi</td>
+<td>2512e40e48d2</td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/2955c155bb95">2955c155bb95</a></td>
+<td>ipmi: Rework SMI registration failure</td>
+</tr>
+<tr class="odd">
+<td>ipmi</td>
+<td>38aee662f3dd</td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/5f9dbb82b758">5f9dbb82b758</a></td>
+<td>ipmi:ssif: Add support for multi-part transmit messages &gt; 2 parts</td>
+</tr>
+</tbody>
+</table>
+<h3 id="not-upstream">Not Upstream</h3>
+<table>
+<colgroup>
+<col width="11%"></col>
+<col width="13%"></col>
+<col width="13%"></col>
+<col width="62%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Release</th>
+<th>Upstream</th>
+<th>Backport</th>
+<th>Subject</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>na</td>
+<td>na</td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/464788b66262">464788b66262</a></td>
+<td>config: Update to new config that enables ARCH_SUPPORTS_ACPI</td>
+</tr>
+<tr class="even">
+<td>na</td>
+<td>na</td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/d285662659f7">d285662659f7</a></td>
+<td>config: Build drivers as modules</td>
+</tr>
+<tr class="odd">
+<td>na</td>
+<td>na</td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/1eec307df8e7">1eec307df8e7</a></td>
+<td>config: Enable PMU uncore driver and PPTT</td>
+</tr>
+<tr class="even">
+<td>na</td>
+<td>na</td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/fb53db91aa2d">fb53db91aa2d</a></td>
+<td>config: Adding Cavium's arm64 default config</td>
+</tr>
+<tr class="odd">
+<td>na</td>
+<td>na</td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/ea92ad239e9d">ea92ad239e9d</a></td>
+<td>ThunderX2: Add CCPI2 UNCORE PMU support for ThunderX2</td>
+</tr>
+<tr class="even">
+<td>na</td>
+<td>na</td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/6518f601d34d">6518f601d34d</a></td>
+<td>thunderx2,uncore: fix compilation issue of uncore driver</td>
+</tr>
+<tr class="odd">
+<td>na</td>
+<td>na</td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/5145b30795d6">5145b30795d6</a></td>
+<td>ThunderX2: Add Cavium ThunderX2 SoC UNCORE PMU driver</td>
+</tr>
+<tr class="even">
+<td>na</td>
+<td>na</td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/f54f4d00ce6d">f54f4d00ce6d</a></td>
+<td>perf: uncore: Adding documentation for ThunderX2 pmu uncore driver</td>
+</tr>
+<tr class="odd">
+<td>na</td>
+<td>na</td>
+<td><a href="https://github.com/cavium/thunderx-linux/commit/b34928b49a54">b34928b49a54</a></td>
+<td>kernel: crash: add handler for 'crashkernel=auto' value</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
